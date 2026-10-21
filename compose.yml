@@ -15,6 +15,21 @@ services:
       retries: 10
       start_period: 10s
     restart: unless-stopped
+  
+  api:
+    build: ./backend
+    container_name: ayd-api
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
 
 volumes:
   pgdata:
