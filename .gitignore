@@ -1,0 +1,19 @@
+# okruzenje
+.env
+.env.local
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# node
+node_modules/
+dist/
+.vite/
+
+# editor / os
+.DS_Store
+Thumbs.db
