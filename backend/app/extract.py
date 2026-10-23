@@ -12,7 +12,7 @@ SUPPORTED: dict[str,str] = {
     }
 
 def is_supported(filename: str) -> bool:
-    return Path(filename).suffix.lower in SUPPORTED
+    return Path(filename).suffix.lower() in SUPPORTED
 
 def normalize(text: str) -> str:
     text = text.replace("\r\n", "\n").replace("\r","\n")
@@ -37,7 +37,7 @@ def extract(filename: str, data:bytes) -> tuple[str,str]:
     if source_type == "pdf":
         raw = _read_pdf(data)
     elif source_type == "docx":
-        rat = _read_docx(data)
+        raw = _read_docx(data)
     else: 
         raw = _read_plain(data)
     return normalize(raw), source_type

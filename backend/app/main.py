@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from .db import close_db, init_db, pool
+from .routers import documents
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -10,6 +11,7 @@ async def lifespan(app: FastAPI):
     close_db()
 
 app = FastAPI(title="ask-your-docs", lifespan=lifespan)
+app.include_router(documents.router, prefix="/api")
 
 app.add_middleware(
     CORSMiddleware,
@@ -19,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-@app.get("/health")
+@app.get("/api/health")
 #Moraju sinhroni pozivi zbog pool-a da ne bi async zaledio ceo event loop
 def healt():
     with pool.connection() as conn:
