@@ -30,7 +30,7 @@ def _read_docx(data: bytes) -> str:
     return "\n\n".join(p.text for p in document.paragraphs if p.text.strip())
 
 def _read_plain(data: bytes) -> str:
-    return data.decode("utf-8", errors="replace")
+    return data.decode("utf-8-sig", errors="replace")
 
 def extract(filename: str, data:bytes) -> tuple[str,str]:
     source_type = SUPPORTED[Path(filename).suffix.lower()]

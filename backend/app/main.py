@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from .db import close_db, init_db, pool
-from .routers import documents
+from .routers import ask, documents
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -12,10 +12,11 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="ask-your-docs", lifespan=lifespan)
 app.include_router(documents.router, prefix="/api")
+app.include_router(ask.router, prefix="/api")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://localhost:5173"],
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]

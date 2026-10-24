@@ -17,3 +17,9 @@ dist/
 # editor / os
 .DS_Store
 Thumbs.db
+
+# lokalni test fajlovi
+test.md
+
+# graphify graf se regenerise
+graphify-out/
