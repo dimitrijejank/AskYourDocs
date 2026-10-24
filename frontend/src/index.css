@@ -1,0 +1,159 @@
+:root {
+  --bg: #ffffff;
+  --panel: #f6f6f7;
+  --text: #1a1a1e;
+  --muted: #6b6875;
+  --border: #e2e1e6;
+  --accent: #3b6bff;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15151a;
+    --panel: #1e1e25;
+    --text: #e8e7ec;
+    --muted: #9a97a5;
+    --border: #2e2e38;
+    --accent: #7d9bff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--panel);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #d33;
+  border: 1px solid #d33;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+}
+
+.documents {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.documents li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.documents strong {
+  display: block;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.dropzone.dragging {
+  border-color: var(--accent);
+}
+
+.dropzone p {
+  margin: 0 0 0.5rem;
+}
+
+.file-button {
+  display: inline-block;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+
+.file-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.file-button input {
+  display: none;
+}
+
+textarea,
+input[type='text'] {
+  font: inherit;
+  width: 100%;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  resize: vertical;
+}
+button {
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.danger:hover:not(:disabled) {
+  border-color: #d33;
+  color: #d33;
+}
