@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { deleteDocument, listDocuments, type Document } from './api'
+import { AskPanel } from './components/AskPanel'
 import { DocumentList } from './components/DocumentList'
 import { UploadPanel } from './components/UploadPanel'
 
@@ -42,6 +43,8 @@ function App() {
     <main>
       <h1>ask-your-docs</h1>
       {error && <p className="error">{error}</p>}
+
+      <AskPanel disabled={documents.length === 0} />
 
       <UploadPanel onCreated={(doc) => setDocuments((prev) => [doc, ...prev])} />
 

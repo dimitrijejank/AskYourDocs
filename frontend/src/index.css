@@ -157,3 +157,43 @@ button:disabled {
   border-color: #d33;
   color: #d33;
 }
+
+.answer {
+  white-space: pre-wrap;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.sources {
+  margin-top: 0.8rem;
+}
+
+.sources summary {
+  cursor: pointer;
+}
+
+.sources ol {
+  padding-left: 1.2rem;
+}
+
+.sources p {
+  margin: 0.2rem 0 0.8rem;
+}
