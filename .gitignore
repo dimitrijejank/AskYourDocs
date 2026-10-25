@@ -1,25 +1,20 @@
-# okruzenje
 .env
 .env.local
+.env.example
 
-# python
 __pycache__/
 *.pyc
 .venv/
 venv/
 .pytest_cache/
 
-# node
 node_modules/
 dist/
 .vite/
 
-# editor / os
 .DS_Store
 Thumbs.db
 
-# lokalni test fajlovi
 test.md
 
-# graphify graf se regenerise
 graphify-out/
